@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title></title>
+    <script src="redux.min.js"></script>
+    <script src="actions/index.js"></script>
+    <script src="reducers/counter.js"></script>
+    <script src="reducers/sum.js"></script>
+    <script src="reducers/index.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <p>
+            Cliked: <span id="value">0</span>times
+            <button id='decrement'>Decrement</button>
+            <button id="incrementAsync">IncrementAsync</button>
+            <button id='x2'>X2</button>
+            <hr/>
+            <input type="text" id="number1" value="1">+
+            <input type="text" id="number2" value="2">
+            =<span id="valSum">0</span>
+            <button id="sum">Sum</button>
+
+        </p>
+    </div>
+    <script>
+       
+       document.getElementById('decrement')
+       .addEventListener('click',function(){
+       //step 2.1
+        store.dispatch(decrease());
+        //end step 2.1
+       });
+       document.getElementById('x2').addEventListener('click',function(){
+           store.dispatch(x2());
+       });
+       document.getElementById('incrementAsync').addEventListener('click',function(){
+           setTimeout(function(){
+                store.dispatch(increase());
+           },1000);
+       });
+       document.getElementById('sum').addEventListener('click',function(){
+           var number1=document.getElementById('number1').value;
+           var number2=document.getElementById('number2').value;
+        //    action={type:'SUM',number1:number1,number2:number2};
+           store.dispatch(getSum(number1,number2));
+       });
+    </script>
+    <script src=index.js></script>
+</body>
+
+</html>

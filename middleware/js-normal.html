@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div>
+        <p>
+            Cliked: <span id="value">0</span>times
+            <button id='decrement'>Decrement</button>
+            <button id="incrementAsync">IncrementAsync</button>
+        </p>
+    </div>
+    <script>
+        var valueE1=document.getElementById('value');
+       function render(){
+           valueE1.innerHTML=1;
+       }
+       render();
+       document.getElementById('decrement').addEventListener('click',function(){
+           valueE1.innerHTML=valueE1.innerHTML -1;
+       });
+       document.getElementById('incrementAsync').addEventListener('click',function(){
+           setTimeout(function(){
+                valueE1.innerHTML= parseInt(valueE1.innerHTML)+1;
+           },1000);
+           
+       })
+    </script>
+</body>
+
+</html>
